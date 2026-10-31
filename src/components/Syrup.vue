@@ -1,8 +1,27 @@
+
 <template>
-  <div class="syrup"></div>
+  <div
+    class="syrup"
+    :style="{ backgroundColor: syrupColors[syrup] }"
+  ></div>
 </template>
 
-<script setup lang="ts"></script>
+
+
+<script setup lang="ts">
+type Props = {
+  syrup: string;
+};
+
+defineProps<Props>();
+
+const syrupColors: Record<string, string> = {
+  Vanilla: '#d9af74',
+  Caramel: '#a86734',
+  Hazelnut: '#8b5936',
+};
+</script>
+
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);

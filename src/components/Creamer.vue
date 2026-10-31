@@ -1,10 +1,43 @@
+
 <template>
-  <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+  <div
+    class="froth"
+    :style="{ backgroundColor: creamerColors[creamer] }"
+  >
+    <div
+      v-for="n in 5"
+      :key="n"
+      class="foam"
+      :style="{ backgroundColor: foamColors[creamer] }"
+    ></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+
+
+<script setup lang="ts">
+type Props = {
+  creamer: string;
+};
+
+defineProps<Props>();
+
+const creamerColors: Record<string, string> = {
+  Milk: '#cbd2d6',
+  Cream: '#ffe6ac',
+  'Half & Half': '#e9dbc2',
+};
+
+
+const foamColors: Record<string, string> = {
+  Milk: '#ffffff',
+  Cream: '#fff5d6',
+  'Half & Half': '#f8eee0',
+};
+
+</script>
+
+
 <style lang="scss" scoped>
 .froth {
   overflow: visible;

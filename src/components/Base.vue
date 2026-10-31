@@ -1,8 +1,26 @@
 <template>
-  <div class="baseBeverage"></div>
+<div
+  class="baseBeverage"
+  :style="{ backgroundColor: baseColors[base] }"
+></div>
+
 </template>
 
-<script setup lang="ts"></script>
+
+<script setup lang="ts">
+type Props = {
+  base: string;
+};
+
+defineProps<Props>();
+
+const baseColors: Record<string, string> = {
+  Coffee: '#6f4e37',
+  'Green Tea': '#a4bb72',
+  'Black Tea': '#8b4513',
+};
+</script>
+
 
 <style scoped>
 .baseBeverage {
